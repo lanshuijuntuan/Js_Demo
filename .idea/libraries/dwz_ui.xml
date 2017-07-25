@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="dwz_ui" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://E:/24.jui/dwz_jui" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://E:/24.jui/dwz_jui" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
