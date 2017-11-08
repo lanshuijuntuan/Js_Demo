@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="${ctx}/base/meterRecord/update">
+    <input type="hidden" name="id" value="${meterRecord.meter_record_id!''}">
+                   <td align="center">
+    <div name="cbox">
+
+        <input class="checkflag fristCkb" type="checkbox" name="ids" value="${meterRecord.meter_record_id!}"/> <input
+            type="hidden" name="status" value="${meterRecord.status!}"/>
+    </div>
+    </td>
+    <!-- <td>${meterRecord.project_name!}&nbsp;</td>
+                        <td>${meterRecord.area_name!}&nbsp;</td>
+                        <td>${meterRecord.building_name!}&nbsp;</td> -->
+    <td>${meterRecord.room_num!}&nbsp;</td>
+    <td>${meterRecord.meter_name!}&nbsp;</td>
+    <td>${meterRecord.type_name!}&nbsp;</td>
+    <td var-bind="meter.spec" var-data="${meterRecord.spec!}"></td>
+    <td class="rate_${meterRecord.meter_record_id}" data="${meterRecord.rate!}" col-data-field="rate">
+        ${meterRecord.rate!}
+    </td>
+    <td class="amount_${meterRecord.meter_record_id}" data="${meterRecord.amount!}">${meterRecord.amount!}</td>
+    <td var-bind="meter.model" var-data="${meterRecord.model!}"></td>
+    <td class="start_${meterRecord.meter_record_id}" data="${meterRecord.before_reading!}">
+        <input name="start" value="${meterRecord.start}">
+    </td>
+    <td class="end_${meterRecord.meter_record_id}" data="${meterRecord.now_reading!}">
+        <input name="end" value="${meterRecord.end}">
+    </td>
+    <td>${meterRecord.before_accounting!}&nbsp;</td>
+    <td class="account_${meterRecord.meter_record_id}">${meterRecord.accounting!}</td>
+    <td>${meterRecord.before_read_date!}&nbsp;</td>
+    <td>${meterRecord.now_read_date!}&nbsp;</td>
+    <td>
+        <#if meterRecord.status?? && meterRecord.status == 0> 未审核
+            <#else>已审核
+        </#if>
+    </td>
+    <td>${meterRecord.true_name!}</td>
+    <td>${meterRecord.audit_name!}</td>
+    <td>${meterRecord.audit_time!}</td>
+    <td>${meterRecord.create_time?string("yyyy-MM-dd")}</td>
+    <td>${meterRecord.opt_time?string("yyyy-MM-dd")}</td>
+    <td class="center">
+
+        <#if meterRecord.status?? && meterRecord.status == 0><a id="edit_${meterRecord.meter_record_id}"
+                                                                row-update-edit="1" href="javascript:void(0)"
+                                                                onclick="editRow('edit_${meterRecord.meter_record_id}')">编辑</a>
+        </#if>
+    </td>
+</form>
+</body>
+
+</html>
